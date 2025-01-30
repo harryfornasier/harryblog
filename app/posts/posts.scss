@@ -1,0 +1,15 @@
+.card {
+    flex: 0 1 auto; /* Prevents the child from stretching */
+    width: auto; /* Lets content define the width */
+    max-width: 200px; /* Optional: limits the width */
+    text-align: left; /* Centres the text inside the children (optional) */
+}
+
+.container {
+    display: flex;
+    background-color: #dbe1f1;
+    flex-direction: column; /* Arranges children in a column */
+    justify-content: center; /* Centres children vertically */
+    align-items: center; /* Centres children horizontally */
+    gap: 10px; /* Adds spacing between children */
+}
