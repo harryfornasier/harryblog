@@ -1,4 +1,5 @@
 import Link from "next/link";
+import "../../styles/global.scss";
 import "./posts.scss";
 
 async function getPosts() {
@@ -13,12 +14,14 @@ export default async function Posts() {
   const posts = await getPosts();
 
   return (
-    <main className="container">
-      <h1>Posts</h1>
+    <main className="main">
+      <section className="container">
+        <h1>Posts</h1>
 
-      {posts?.map((post) => {
-        return <Post key={post.id} post={post} />;
-      })}
+        {posts?.map((post) => {
+          return <Post key={post.id} post={post} />;
+        })}
+      </section>
     </main>
   );
 }
@@ -27,12 +30,12 @@ function Post({ post }: any) {
   const { id, title, content, created } = post || {};
 
   return (
-    <Link href={`/posts/${id}`}>
-      <div className="card">
+    <div className="card">
+      <Link href={`/posts/${id}`} className="link">
         <h2 className="card__title">{title}</h2>
-        <h5 className="card__content">{content}</h5>
-        <p className="Card__date">{created}</p>
-      </div>
-    </Link>
+      </Link>
+      <h5 className="card__content">{content}</h5>
+      <p className="Card__date">{created}</p>
+    </div>
   );
 }
